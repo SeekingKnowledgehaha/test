@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxifierProfile version="101" platform="Windows" product_id="0" product_minver="310">
+  <Options>
+    <Resolve>
+      <AutoModeDetection enabled="false" />
+      <ViaProxy enabled="true">
+        <TryLocalDnsFirst enabled="false" />
+      </ViaProxy>
+      <ExclusionList>%ComputerName%; localhost; *.local</ExclusionList>
+      <DnsUdpMode>0</DnsUdpMode>
+    </Resolve>
+    <Encryption mode="disabled" />
+    <HttpProxiesSupport enabled="true" />
+    <HandleDirectConnections enabled="false" />
+    <ConnectionLoopDetection enabled="true" />
+    <ProcessServices enabled="false" />
+    <ProcessOtherUsers enabled="false" />
+  </Options>
+  <ProxyList>
+    <Proxy id="100" type="SOCKS5">
+      <Address>127.0.0.1</Address>
+      <Port>1088</Port>
+      <Options>48</Options>
+    </Proxy>
+    <Proxy id="101" type="SOCKS5">
+      <Address>127.0.0.1</Address>
+      <Port>1080</Port>
+      <Options>48</Options>
+    </Proxy>
+  </ProxyList>
+  <ChainList />
+  <RuleList>
+    <Rule enabled="true">
+      <Name>chrome</Name>
+      <Applications>chrome.exe;RTX.exe;iexplore.exe;</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>Xshell</Name>
+      <Applications>xshellcore.exe;Xftp.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>SVN</Name>
+      <Applications>TortoiseProc.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Ports>80</Ports>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>eclipse</Name>
+      <Applications>eclipse.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>jdk</Name>
+      <Applications>java*.exe;jar*.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>navicat</Name>
+      <Applications>navicat.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>postman</Name>
+      <Applications>postman.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>V2ray</Name>
+      <Applications>v2rayn.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>outlook</Name>
+      <Applications>chrome.exe</Applications>
+      <Targets>20.*.*.*;166.*.*.*;</Targets>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>Default</Name>
+      <Action type="Direct" />
+    </Rule>
+  </RuleList>
+</ProxifierProfile>
